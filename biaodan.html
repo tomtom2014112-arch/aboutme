@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<body>
+    <h2>表单</h2>
+    <form action="/">
+        <label for="name">用户名:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="password">密 码:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label>性别:</label>
+        <input type="radio" id="male" name="gender" value="male" checked>
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="female" checked>
+        <label for="female">女</label>
+        <br><br>
+        <input type="checkbox" id="subscribe" name="subscribe" >
+        <label for="subscribe">订阅垃圾邮件</label>
+        <br><br>
+        <input type="checkbox" id="old" name="old" >
+        <label for="old">是否大于两百岁</label>
+        <br><br>
+
+        <label for="country">国家:</label>
+        <select name="country" id="country">
+            <option value="cn">中国</option>
+            <option value="un">美国</option>
+            <option value="jp">日本</option>
+        </select>
+        <br><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

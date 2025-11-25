@@ -1,42 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>表单</title>
+  <meta charset="utf-8"> <!-- 防止中文乱码 -->
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- 响应式基础 -->
+  <title>张梓航</title>
+
+  <!-- 简单内联 CSS，课堂上方便修改；也可以把 CSS 放到单独文件 -->
+  <style>
+    /* 页面整体样式 */
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      max-width: 900px;       /* 页面宽度限制，便于阅读 */
+      margin: 30px auto;      /* 居中显示 */
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      align-items: center;    /* 垂直居中 */
+      gap: 20px;              /* 头像与文字间距 */
+      margin-bottom: 24px;
+    }
+
+    /* 头像样式 */
+    .avatar {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;      /* 保证图片不变形 */
+      border-radius: 50%;     /* 圆形头像 */
+      border: 3px solid #ddd;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    p.lead {
+      margin: 6px 0 0 0;
+      color: #555;
+    }
+
+    nav {
+      margin: 16px 0;
+    }
+    nav a {
+      margin-right: 12px;
+      text-decoration: none;
+      color: #1a73e8;
+    }
+
+    /* 作品列表（卡片式） */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 16px 0 24px 0;
+    }
+    .project {
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      background: #fff;
+    }
+    .project h3 { margin: 0 0 8px 0; font-size: 16px; }
+    .project p { margin: 0; font-size: 14px; color: #444; }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+      border-top: 1px dashed #eee;
+      padding-top: 12px;
+    }
+
+    /* 小屏幕调整：头像变小，排版改为列 */
+    @media (max-width: 480px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .avatar { width: 90px; height: 90px; }
+    }
+  </style>
 </head>
 <body>
-    <h2>表单</h2>
-    <form action="/">
-        <label for="name">用户名:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
 
-        <label for="password">密 码:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
+  <!-- Header：头像 + 名字 + 简短介绍 -->
+  <header>
+    <!-- 把 images/avatar.jpg 换成学生自己的图片路径 -->
+    <img src="images/avatar.jpg" alt="你的头像" class="avatar">
+    <div>
+      <h1>张梓航</h1>
+      <p class="lead">我是一个五年级的学生，喜欢编程和机器人</p>
+    </div>
+  </header>
 
-        <label>性别:</label>
-        <input type="radio" id="male" name="gender" value="male" checked>
-        <label for="male">男</label>
-        <input type="radio" id="female" name="gender" value="female" checked>
-        <label for="female">女</label>
-        <br><br>
-        <input type="checkbox" id="subscribe" name="subscribe" >
-        <label for="subscribe">订阅垃圾邮件</label>
-        <br><br>
-        <input type="checkbox" id="old" name="old" >
-        <label for="old">是否大于两百岁</label>
-        <br><br>
+  <!-- 导航（页面内锚点链接） -->
+  <nav>
+    <a href="#about">关于我</a>
+    <a href="#projects">作品</a>
+    <a href="#contact">联系</a>
+  </nav>
 
-        <label for="country">国家:</label>
-        <select name="country" id="country">
-            <option value="cn">中国</option>
-            <option value="un">美国</option>
-            <option value="jp">日本</option>
-        </select>
-        <br><br>
-        <input type="submit" value="提交">
-    </form>
+  <!-- 关于我部分 -->
+  <section id="about">
+    <h2>关于我</h2>
+    <p>我的爱好有编程，篮球，画画</p>
+  </section>
+
+  <!-- 作品列表 -->
+  <section id="projects">
+    <h2>作品（Projects）</h2>
+
+    <div class="projects">
+      <!-- 每个 project 是一个卡片，学生可复制多份 -->
+      <div class="project">
+        <h3>作品标题 1</h3>
+        <p>简短描述：</p>
+      </div>
+
+      <div class="project">
+        <h3>作品标题 2</h3>
+        <p>简短描述</p>
+      </div>
+
+      <div class="project">
+        <h3>作品标题 3</h3>
+        <p>简短描述</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section id="contact">
+    <h2>联系我</h2>
+    <p>邮箱：tomtom2014112@gmail.com</p>
+    <p>学校：御桥小学 / 班级：五（14）班</p>
+  </section>
+
+  <footer>
+    <p>© 2025 张梓航 — 这是我的个人主页</p>
+  </footer>
+
 </body>
 </html>
